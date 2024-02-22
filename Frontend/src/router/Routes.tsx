@@ -11,7 +11,7 @@ import EditProductsScreen from "../pages/admin/EditProductsScreen";
 import UsersScreen from "../pages/admin/UsersScreen";
 import EditSingleProductsScreen from "../pages/admin/EditSingleProductsScreen";
 import SingleUserScreen from "../pages/admin/SingleUserScreen";
-import PrivateRoutes from "./privateRoutes";
+import PrivateRoutes from "./PrivateRoutes";
 import AdminRoute from "./AdminRoutes";
 
 // Create routes with to go to different screens
