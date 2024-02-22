@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jackmuir/Desktop/Uni Project/Backend/Backend.csproj": {}
+    "/Users/jackmuir/Desktop/Library Management/library-management/Backend/Backend.csproj": {}
   },
   "projects": {
-    "/Users/jackmuir/Desktop/Uni Project/Backend/Backend.csproj": {
+    "/Users/jackmuir/Desktop/Library Management/library-management/Backend/Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jackmuir/Desktop/Uni Project/Backend/Backend.csproj",
+        "projectUniqueName": "/Users/jackmuir/Desktop/Library Management/library-management/Backend/Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "/Users/jackmuir/Desktop/Uni Project/Backend/Backend.csproj",
+        "projectPath": "/Users/jackmuir/Desktop/Library Management/library-management/Backend/Backend.csproj",
         "packagesPath": "/Users/jackmuir/.nuget/packages/",
-        "outputPath": "/Users/jackmuir/Desktop/Uni Project/Backend/obj/",
+        "outputPath": "/Users/jackmuir/Desktop/Library Management/library-management/Backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/jackmuir/.nuget/NuGet/NuGet.Config"
@@ -33,6 +33,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -63,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
