@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "image": "https://example.com/to-kill-a-mockingbird.jpg",
+    "price": 10.99,
+    "category": "Fiction"
+  },
+  {
+    "id": 2,
+    "title": "1984",
+    "author": "George Orwell",
+    "image": "https://example.com/1984.jpg",
+    "price": 9.99,
+    "category": "Fiction"
+  },
+  {
+    "id": 3,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "image": "https://example.com/the-great-gatsby.jpg",
+    "price": 11.99,
+    "category": "Fiction"
+  },
+  {
+    "id": 4,
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "image": "https://example.com/pride-and-prejudice.jpg",
+    "price": 8.99,
+    "category": "Fiction"
+  }
+]

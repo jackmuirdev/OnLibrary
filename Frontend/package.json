@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/coreui": "^4.3.0",
+    "@coreui/react": "^4.11.1",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
@@ -20,6 +22,7 @@
     "@mui/material": "^5.15.3",
     "@reduxjs/toolkit": "^2.1.0",
     "axios": "^1.6.5",
+    "bootstrap": "^5.3.3",
     "concurrently": "^8.2.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",

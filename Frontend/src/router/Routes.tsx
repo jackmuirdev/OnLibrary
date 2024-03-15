@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Navigate, Route } from "react-router-dom";
 import App from "../App";
 import DashboardScreen from "../pages/interface/DashboardScreen";
-import CatalogScreen from "../pages/interface/CatalogScreen";
+import CatalogueScreen from "../pages/interface/CatalogueScreen";
 import NotFoundScreen from "../pages/errors/NotFoundScreen";
 import LoginScreen from "../pages/authentication/LoginScreen";
 import RegisterScreen from "../pages/authentication/RegisterScreen";
@@ -20,8 +20,8 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       // user interface routes
       <Route index={true} path="/" element={<DashboardScreen />} />
-      <Route path="/catalog" element={<CatalogScreen />} />
-      <Route path="/catalog/:id" element={<ProductScreen />} />
+      <Route path="/catalogue" element={<CatalogueScreen />} />
+      <Route path="/catalogue/:id" element={<ProductScreen />} />
       // authentication routes
       <Route path="/login" element={<LoginScreen />} />
       <Route path="/register" element={<RegisterScreen />} />
@@ -48,3 +48,10 @@ const router = createBrowserRouter(
 )
 
 export default router;
+
+// Shopping basket
+// Borrowing basket
+// Checkout screen
+// Payment screen
+// Order screen
+// My Orders
