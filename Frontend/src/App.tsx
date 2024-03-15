@@ -3,7 +3,6 @@ import { Container, ToastContainer } from 'react-bootstrap';
 import { useState } from 'react';
 import Loading from './components/common/Loading';
 import Header from './components/common/Header';
-import Footer from './components/common/Footer';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,7 +20,6 @@ function App() {
         <Container id='container'>
           <Outlet />
         </Container>
-      <Footer />
     </>
   )
 }
