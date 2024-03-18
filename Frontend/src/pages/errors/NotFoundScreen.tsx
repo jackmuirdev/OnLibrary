@@ -8,7 +8,7 @@ const NotFound = () => {
         Sorry we couldn't find what you were looking for.
       </Typography>
       <Divider />
-      <Button fullWidth component={Link} to='/catalog'>Go back to shop</Button>
+      <Button fullWidth component={Link} to='/'>Go back to shop</Button>
     </Container>
   )
 }
