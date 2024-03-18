@@ -1,0 +1,98 @@
+[
+  {
+    "id": 7,
+    "title": "The Lord of the Rings",
+    "author": "J.R.R. Tolkien",
+    "image": "https://example.com/the-lord-of-the-rings.jpg",
+    "price": 14.99,
+    "category": "Fantasy"
+  },
+  {
+    "id": 8,
+    "title": "Moby-Dick",
+    "author": "Herman Melville",
+    "image": "https://example.com/moby-dick.jpg",
+    "price": 13.25,
+    "category": "Fiction"
+  },
+  {
+    "id": 9,
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "image": "https://example.com/the-hobbit.jpg",
+    "price": 12.99,
+    "category": "Fantasy"
+  },
+  {
+    "id": 10,
+    "title": "Jane Eyre",
+    "author": "Charlotte Brontë",
+    "image": "https://example.com/jane-eyre.jpg",
+    "price": 9.50,
+    "category": "Fiction"
+  },
+  {
+    "id": 11,
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "image": "https://example.com/brave-new-world.jpg",
+    "price": 11.99,
+    "category": "Fiction"
+  },
+  {
+    "id": 12,
+    "title": "The Picture of Dorian Gray",
+    "author": "Oscar Wilde",
+    "image": "https://example.com/the-picture-of-dorian-gray.jpg",
+    "price": 10.75,
+    "category": "Fiction"
+  },
+  {
+    "id": 13,
+    "title": "Wuthering Heights",
+    "author": "Emily Brontë",
+    "image": "https://example.com/wuthering-heights.jpg",
+    "price": 8.99,
+    "category": "Fiction"
+  },
+  {
+    "id": 14,
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "image": "https://example.com/the-catcher-in-the-rye.jpg",
+    "price": 11.25,
+    "category": "Fiction"
+  },
+  {
+    "id": 15,
+    "title": "The Adventures of Huckleberry Finn",
+    "author": "Mark Twain",
+    "image": "https://example.com/huckleberry-finn.jpg",
+    "price": 9.99,
+    "category": "Fiction"
+  },
+  {
+    "id": 16,
+    "title": "Frankenstein",
+    "author": "Mary Shelley",
+    "image": "https://example.com/frankenstein.jpg",
+    "price": 10.49,
+    "category": "Horror"
+  },
+  {
+    "id": 17,
+    "title": "Dracula",
+    "author": "Bram Stoker",
+    "image": "https://example.com/dracula.jpg",
+    "price": 11.99,
+    "category": "Horror"
+  },
+  {
+    "id": 18,
+    "title": "Alice's Adventures in Wonderland",
+    "author": "Lewis Carroll",
+    "image": "https://example.com/alices-adventures-in-wonderland.jpg",
+    "price": 8.75,
+    "category": "Fantasy"
+  }
+]

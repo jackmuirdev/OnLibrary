@@ -1,7 +1,8 @@
-import { CardMedia, CardContent, Typography, CardActions, Link, Button, Card } from "@mui/material";
+import { CardMedia, CardContent, Typography, CardActions, Button, Card } from "@mui/material";
 import { useState, useEffect } from "react";
-import booksData from "../../../../data/books.json";
+import booksData from "../../../../data/bestSellers.json";
 import { Product } from "../../../../models/product";
+import { Link } from "react-router-dom";
 
 interface Props {
   product: Product;
@@ -25,7 +26,7 @@ export default function ProductCard({ product }: Props) {
   return (
     <div>
       <Card style={{ textAlign: "center" }}>
-        <Link href={`/catalog/${product.id}`} style={{ textDecoration: "none" }}>
+        <Link to={`/catalogue/${product.id}`} style={{ textDecoration: "none" }}>
           <CardMedia
             sx={{ height: 400, borderRadius: '0px'}}
             image={productDetails.image}
@@ -34,10 +35,10 @@ export default function ProductCard({ product }: Props) {
         </Link>
         <CardContent>
           <Typography gutterBottom color='primary' variant="h5" >
-            {productDetails.price.toFixed(2)} {/* Use product price from the data */}
+            {productDetails.price.toFixed(2)}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {productDetails.author} / {productDetails.category} {/* Use author and category from the data */}
+            {productDetails.author} / {productDetails.category}
           </Typography>
         </CardContent>
         <CardActions>

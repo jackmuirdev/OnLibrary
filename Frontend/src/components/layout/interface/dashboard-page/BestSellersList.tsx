@@ -1,24 +1,20 @@
-import { Grid } from '@mui/material';
-import BestSellers from './BestSellers';
-import { useState, useEffect } from "react";
-import booksData from "../../../../data/books.json";
+import React from "react";
+import { Grid } from "@mui/material";
 import { Product } from "../../../../models/product";
+import BestProductCard from "./BestProductCard";
 
-const BestSellersList= () => {
-  // Define the products state variable
-  const [products, setProducts] = useState<Product[]>([]);
+interface ProductListProps {
+  products: Product[];
+}
 
-  useEffect(() => {
-    // Simulating fetching data from the server
-    setProducts(booksData);
-  }, []);
-
+const BestSellersList: React.FC<ProductListProps> = ({ products }) => {
   return (
-    <Grid container columnSpacing={0} sx={{ width: '100%', maxWidth: 'initial' }}>
-      <Grid item xs={12} md={12}>
-        {/* Pass the products state variable to BestSellers component */}
-        <BestSellers products={products} />
-      </Grid>
+    <Grid container spacing={2}>
+      {products.map((product) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+          <BestProductCard product={product} />
+        </Grid>
+      ))}
     </Grid>
   );
 };

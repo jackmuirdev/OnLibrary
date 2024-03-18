@@ -63,3 +63,36 @@
 /Users/jackmuir/Desktop/Library Management/library-management/Backend/obj/Debug/net8.0/Backend.pdb
 /Users/jackmuir/Desktop/Library Management/library-management/Backend/obj/Debug/net8.0/Backend.genruntimeconfig.cache
 /Users/jackmuir/Desktop/Library Management/library-management/Backend/obj/Debug/net8.0/ref/Backend.dll
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/appsettings.Development.json
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/appsettings.json
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Backend
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Backend.deps.json
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Backend.runtimeconfig.json
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Backend.dll
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Backend.pdb
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.csproj.AssemblyReference.cache
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.AssemblyInfoInputs.cache
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.AssemblyInfo.cs
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.csproj.CoreCompileInputs.cache
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.MvcApplicationPartsAssemblyInfo.cs
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.MvcApplicationPartsAssemblyInfo.cache
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.sourcelink.json
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/staticwebassets.build.json
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/staticwebassets.development.json
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/staticwebassets/msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/staticwebassets/msbuild.build.Backend.props
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Backend.props
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Backend.props
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/scopedcss/bundle/Backend.styles.css
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.csproj.CopyComplete
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.dll
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/refint/Backend.dll
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.pdb
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/Backend.genruntimeconfig.cache
+/Users/jackmuir/Desktop/library-management/Backend/obj/Debug/net8.0/ref/Backend.dll
