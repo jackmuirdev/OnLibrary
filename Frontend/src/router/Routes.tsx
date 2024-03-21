@@ -13,6 +13,7 @@ import EditSingleProductsScreen from "../pages/admin/EditSingleProductsScreen";
 import SingleUserScreen from "../pages/admin/SingleUserScreen";
 import PrivateRoutes from "./PrivateRoutes";
 import AdminRoute from "./AdminRoutes";
+import BagScreen from "../pages/interface/BagScreen";
 
 // Create routes with to go to different screens
 const router = createBrowserRouter(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<DashboardScreen />} />
       <Route path="/catalogue" element={<CatalogueScreen />} />
       <Route path="/catalogue/:id" element={<ProductScreen />} />
+      <Route path="/shopping-bag" element={<BagScreen />} />
       // authentication routes
       <Route path="/login" element={<LoginScreen />} />
       <Route path="/register" element={<RegisterScreen />} />
