@@ -1,11 +1,11 @@
 import { Button, Container, Divider, Paper, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 
-const NotFound = () => {
+const EmptyBasket = () => {
   return (
     <Container component={Paper} sx={{height: '35vh', display: 'flex', justifyContent: 'center', flexDirection: 'column', mt: 5}}>
       <Typography gutterBottom variant="h3" sx={{padding: '60px', fontSize: '40px', textAlign: 'center'}}>
-        Sorry we couldn't find what you were looking for.
+        Your shopping bag is empty.
       </Typography>
       <Divider />
       <Button fullWidth component={Link} to='/'>Go back to shop</Button>
@@ -13,4 +13,4 @@ const NotFound = () => {
   )
 }
 
-export default NotFound;
+export default EmptyBasket
