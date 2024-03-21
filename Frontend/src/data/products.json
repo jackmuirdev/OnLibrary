@@ -5,7 +5,8 @@
     "author": "J.R.R. Tolkien",
     "image": "https://example.com/the-lord-of-the-rings.jpg",
     "price": 14.99,
-    "category": "Fantasy"
+    "category": "Fantasy",
+    "description": "The Lord of the Rings is a high-fantasy epic novel written by English author J.R.R. Tolkien. It is one of the best-selling novels ever written, with over 150 million copies sold worldwide."
   },
   {
     "id": 8,
@@ -13,7 +14,8 @@
     "author": "Herman Melville",
     "image": "https://example.com/moby-dick.jpg",
     "price": 13.25,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "Moby-Dick is an epic novel by Herman Melville, first published in 1851. The story follows Ishmael's adventures aboard the whaling ship Pequod, led by the vengeful Captain Ahab."
   },
   {
     "id": 9,
@@ -21,7 +23,8 @@
     "author": "J.R.R. Tolkien",
     "image": "https://example.com/the-hobbit.jpg",
     "price": 12.99,
-    "category": "Fantasy"
+    "category": "Fantasy",
+    "description": "The Hobbit, or There and Back Again, is a fantasy novel by J.R.R. Tolkien, published in 1937. It follows the quest of Bilbo Baggins, a hobbit who embarks on an adventure to reclaim a stolen treasure guarded by the dragon Smaug."
   },
   {
     "id": 10,
@@ -29,7 +32,8 @@
     "author": "Charlotte Brontë",
     "image": "https://example.com/jane-eyre.jpg",
     "price": 9.50,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "Jane Eyre is a novel by English writer Charlotte Brontë, published in 1847. It follows the experiences of the orphan Jane Eyre as she grows to adulthood and falls in love with her employer, Mr. Rochester."
   },
   {
     "id": 11,
@@ -37,7 +41,8 @@
     "author": "Aldous Huxley",
     "image": "https://example.com/brave-new-world.jpg",
     "price": 11.99,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "Brave New World is a dystopian novel by Aldous Huxley, published in 1932. It explores a futuristic society where humans are genetically engineered and conditioned for conformity and stability."
   },
   {
     "id": 12,
@@ -45,7 +50,8 @@
     "author": "Oscar Wilde",
     "image": "https://example.com/the-picture-of-dorian-gray.jpg",
     "price": 10.75,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "The Picture of Dorian Gray is a Gothic and philosophical novel by Oscar Wilde, first published in 1890. It tells the story of a young man, Dorian Gray, who becomes enthralled by a portrait that ages in his place as he indulges in a life of decadence and vice."
   },
   {
     "id": 13,
@@ -53,7 +59,8 @@
     "author": "Emily Brontë",
     "image": "https://example.com/wuthering-heights.jpg",
     "price": 8.99,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "Wuthering Heights is a novel by Emily Brontë, published in 1847 under the pseudonym Ellis Bell. It is a tale of passion, revenge, and the destructive power of love, set in the Yorkshire moors."
   },
   {
     "id": 14,
@@ -61,7 +68,8 @@
     "author": "J.D. Salinger",
     "image": "https://example.com/the-catcher-in-the-rye.jpg",
     "price": 11.25,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "The Catcher in the Rye is a novel by J.D. Salinger, published in 1951. It follows the protagonist, Holden Caulfield, as he navigates adolescence and struggles with the phoniness of the adult world."
   },
   {
     "id": 15,
@@ -69,7 +77,8 @@
     "author": "Mark Twain",
     "image": "https://example.com/huckleberry-finn.jpg",
     "price": 9.99,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "The Adventures of Huckleberry Finn is a novel by Mark Twain, published in 1884. It follows the journey of Huck Finn and Jim, a runaway slave, as they travel down the Mississippi River and encounter various adventures."
   },
   {
     "id": 16,
@@ -77,7 +86,8 @@
     "author": "Mary Shelley",
     "image": "https://example.com/frankenstein.jpg",
     "price": 10.49,
-    "category": "Horror"
+    "category": "Horror",
+    "description": "Frankenstein; or, The Modern Prometheus is a novel by Mary Shelley, first published in 1818. It tells the story of Victor Frankenstein, a young scientist who creates a grotesque creature in an unorthodox scientific experiment."
   },
   {
     "id": 17,
@@ -85,7 +95,8 @@
     "author": "Bram Stoker",
     "image": "https://example.com/dracula.jpg",
     "price": 11.99,
-    "category": "Horror"
+    "category": "Horror",
+    "description": "Dracula is an epistolary Gothic horror novel by Bram Stoker, first published in 1897. It tells the story of Count Dracula's attempt to move from Transylvania to England so he may find new blood and spread the undead curse."
   },
   {
     "id": 18,
@@ -93,6 +104,7 @@
     "author": "Lewis Carroll",
     "image": "https://example.com/alices-adventures-in-wonderland.jpg",
     "price": 8.75,
-    "category": "Fantasy"
+    "category": "Fantasy",
+    "description": "Alice's Adventures in Wonderland is an 1865 novel by Lewis Carroll. It tells of a young girl named Alice, who falls through a rabbit hole into a subterranean fantasy world populated by peculiar creatures."
   }
 ]

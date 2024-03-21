@@ -5,7 +5,8 @@
     "author": "Harper Lee",
     "image": "https://example.com/to-kill-a-mockingbird.jpg",
     "price": 10.99,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "To Kill a Mockingbird is a novel by Harper Lee, published in 1960. It explores the themes of racial injustice and moral growth through the eyes of young Scout Finch in the fictional town of Maycomb, Alabama."
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "author": "George Orwell",
     "image": "https://example.com/1984.jpg",
     "price": 9.99,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "1984 is a dystopian novel by George Orwell, published in 1949. It portrays a totalitarian regime where individualism and freedom of thought are suppressed, and the government uses surveillance and propaganda to control its citizens."
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "author": "F. Scott Fitzgerald",
     "image": "https://example.com/the-great-gatsby.jpg",
     "price": 11.99,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "The Great Gatsby is a novel by F. Scott Fitzgerald, published in 1925. Set in the Jazz Age on Long Island, it depicts the tragic love story of Jay Gatsby and Daisy Buchanan against the backdrop of the American Dream."
   },
   {
     "id": 4,
@@ -29,6 +32,7 @@
     "author": "Jane Austen",
     "image": "https://example.com/pride-and-prejudice.jpg",
     "price": 8.99,
-    "category": "Fiction"
+    "category": "Fiction",
+    "description": "Pride and Prejudice is a romantic novel by Jane Austen, published in 1813. It follows the emotional development of protagonist Elizabeth Bennet as she navigates issues of manners, upbringing, morality, and marriage in early 19th-century England."
   }
 ]

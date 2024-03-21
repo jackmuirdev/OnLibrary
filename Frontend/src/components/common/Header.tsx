@@ -45,7 +45,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -121,16 +120,14 @@ export default function Header() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="shopping cart"
-          color="inherit"
-        >
-          <Badge badgeContent={0} color="error">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        <p>Shopping Cart</p>
+        <Link to="/basket" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <IconButton size="large" aria-label="shopping cart" color="inherit">
+            <Badge badgeContent={0} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+          <p>Shopping Cart</p>
+        </Link>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -151,12 +148,8 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-          >
-            <Link to="/">Logo</Link>
+          <Typography variant="h6" noWrap component="div">
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Logo</Link>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -169,15 +162,13 @@ export default function Header() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size="large"
-              aria-label="shopping cart"
-              color="inherit"
-            >
-              <Badge badgeContent={0} color="error">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
+            <Link to="/shopping-bag" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <IconButton size="large" aria-label="shopping cart" color="inherit">
+                <Badge badgeContent={0} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+            </Link>
             <IconButton
               size="large"
               edge="end"
