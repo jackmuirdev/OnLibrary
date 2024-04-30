@@ -1,9 +1,23 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { useAppSelector } from "../store/configureStore";
+import { toast } from "react-toastify";
 
-export default function privateRoutes() {
-  // Function to check if a user is signed in
-  // If the user is signed in, return the private routes
-  
-  // If the user is not signed in, navigate to the login page
-  return <Navigate to="/login" />;
+interface Props {
+  roles?: string[];
+}
+
+export default function PrivateRoutes({roles}: Props) {
+  const {user} = useAppSelector(state => state.account);
+  const location = useLocation();
+
+  if (!user) {
+    return <Navigate to='/login' state={{from: location}}/>;
+  }
+
+  if (roles && !roles.some(r => user.roles?.includes(r))) {
+    toast.error('Unauthorized')
+    return <Navigate to='/'/>;
+  }
+
+  return <Outlet/>;
 }
