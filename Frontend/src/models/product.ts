@@ -1,9 +1,20 @@
+
 export interface Product {
-  id: number;
-  title: string;
-  author: string;
-  image: string;
-  price: number;
-  category: string;
-  description: string;
+  id: number
+  name: string
+  description: string
+  price: number
+  image: string
+  category: string
+  brand: string
+  quantityInStock: number
+}
+
+export interface ProductParams {
+  orderBy: string;
+  searchTerm?: string;
+  categories: string[];
+  brands: string[];
+  pageNumber: number;
+  pageSize: number;
 }

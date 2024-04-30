@@ -17,9 +17,11 @@ function App() {
     <>
     <ToastContainer />
       <Header />
-        <Container id='container'>
-          <Outlet />
-        </Container>
+      <Container
+        id="container"
+      >
+        <Outlet />
+      </Container>
     </>
   )
 }
