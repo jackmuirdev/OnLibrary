@@ -3,14 +3,12 @@ import { Link as RouterLink } from "react-router-dom";
 import BagSummary from "../../components/layout/interface/bag-page/BagSummary";
 import EmptyBasket from "../../components/layout/interface/bag-page/EmptyBasket";
 import BasketTable from "../../components/layout/interface/bag-page/BasketTable";
-import { Basket } from "../../models/basket";
+import { useAppSelector } from "../../store/configureStore";
 
-interface Props {
-  basket: Basket;
-}
+export default function BagScreen() {
+  const { basket } = useAppSelector(state => state.basket);
 
-export default function BagScreen({ basket }: Props) {
-  if (!basket || !basket.items || basket.items.length === 0) return <EmptyBasket />;
+  if (!basket) return <EmptyBasket />;
 
   return (
     <>

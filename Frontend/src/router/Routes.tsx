@@ -12,7 +12,6 @@ import UsersScreen from "../pages/admin/UsersScreen";
 import EditSingleProductsScreen from "../pages/admin/EditSingleProductsScreen";
 import SingleUserScreen from "../pages/admin/SingleUserScreen";
 import PrivateRoutes from "./PrivateRoutes";
-import AdminRoute from "./AdminRoutes";
 import BagScreen from "../pages/interface/BagScreen";
 
 // Create routes with to go to different screens
@@ -38,7 +37,7 @@ const router = createBrowserRouter(
       </Route>
 
       // admin routes (user must be logged in and have admin role)
-      <Route path='' element={<AdminRoute />}>
+      <Route path='' element={<PrivateRoutes roles={['Admin']}/>}>
         // admin routes
         <Route path="/admin/products-list" element={<EditProductsScreen />} />
         <Route path="/admin/products-list/:id" element={<EditSingleProductsScreen />} />
@@ -50,10 +49,3 @@ const router = createBrowserRouter(
 )
 
 export default router;
-
-// Shopping basket
-// Borrowing basket
-// Checkout screen
-// Payment screen
-// Order screen
-// My Orders
