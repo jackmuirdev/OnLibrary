@@ -1,7 +1,7 @@
 using Backend.RequestHelpers;
 using System.Text.Json;
 
-namespace backend.Extensions
+namespace Backend.Extensions
 {
     public static class HttpExtensions
     {

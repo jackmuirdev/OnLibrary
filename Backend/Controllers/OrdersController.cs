@@ -1,10 +1,10 @@
+using Backend.Data;
 using Backend.DTOs;
 using Backend.Entities;
 using Backend.Entities.OrderAggregate;
 using Backend.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Backend.Data;
 
 namespace Backend.Controllers;
 
@@ -76,7 +76,8 @@ public class OrdersController : BaseApiController
             BuyerId = User.Identity.Name,
             ShippingAddress = orderDto.ShippingAddress,
             Subtotal = subtotal,
-            DeliveryFee = deliveryFee
+            DeliveryFee = deliveryFee,
+            PaymentIntentId = basket.PaymentIntentId
         };
 
         _context.Orders.Add(order);

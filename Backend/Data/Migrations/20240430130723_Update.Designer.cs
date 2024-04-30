@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20240430122805_Update")]
+    [Migration("20240430130723_Update")]
     partial class Update
     {
         /// <inheritdoc />
@@ -27,6 +27,14 @@ namespace Backend.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("BuyerId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ClientSecret")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PaymentIntentId")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -78,6 +86,10 @@ namespace Backend.Data.Migrations
                     b.Property<int>("OrderStatus")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("PaymentIntentId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<long>("Subtotal")
                         .HasColumnType("INTEGER");
 
@@ -92,9 +104,6 @@ namespace Backend.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ItemOrderedProductId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("OrderId")
                         .HasColumnType("INTEGER");
 
@@ -106,30 +115,9 @@ namespace Backend.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemOrderedProductId");
-
                     b.HasIndex("OrderId");
 
                     b.ToTable("OrderItem");
-                });
-
-            modelBuilder.Entity("Backend.Entities.OrderAggregate.ProductItemOrdered", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ProductId");
-
-                    b.ToTable("ProductItemOrdered");
                 });
 
             modelBuilder.Entity("Backend.Entities.Product", b =>
@@ -156,6 +144,10 @@ namespace Backend.Data.Migrations
 
                     b.Property<long>("Price")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("PublicId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("QuantityInStock")
                         .HasColumnType("INTEGER");
@@ -480,17 +472,36 @@ namespace Backend.Data.Migrations
 
             modelBuilder.Entity("Backend.Entities.OrderAggregate.OrderItem", b =>
                 {
-                    b.HasOne("Backend.Entities.OrderAggregate.ProductItemOrdered", "ItemOrdered")
-                        .WithMany()
-                        .HasForeignKey("ItemOrderedProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Backend.Entities.OrderAggregate.Order", null)
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId");
 
-                    b.Navigation("ItemOrdered");
+                    b.OwnsOne("Backend.Entities.OrderAggregate.ProductItemOrdered", "ItemOrdered", b1 =>
+                        {
+                            b1.Property<int>("OrderItemId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("Image")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<int>("ProductId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("Title")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("OrderItemId");
+
+                            b1.ToTable("OrderItem");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrderItemId");
+                        });
+
+                    b.Navigation("ItemOrdered")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Backend.Entities.UserAddress", b =>
