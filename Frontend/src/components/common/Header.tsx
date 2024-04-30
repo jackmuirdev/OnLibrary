@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,6 +14,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../store/configureStore';
+import SignedInMenu from '../layout/interface/header-component/SignedInMenu';
+import SignedOutMenu from '../layout/interface/header-component/SignedOutMenu';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -62,9 +65,10 @@ export default function Header() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const { basket } = useAppSelector(state => state.basket);
+  const { user } = useAppSelector(state => state.account);
+  const itemCount = basket?.items.reduce((sum: any, item: any) => sum + item.quantity, 0);
+  const [DropMenuItem, setDropMenuItem] = React.useState<null | HTMLElement>(null);
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -77,6 +81,14 @@ export default function Header() {
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    setDropMenuItem(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setDropMenuItem(null);
   };
 
   const menuId = 'primary-search-account-menu';
@@ -121,25 +133,26 @@ export default function Header() {
     >
       <MenuItem>
         <Link to="/basket" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <IconButton size="large" aria-label="shopping cart" color="inherit">
-            <Badge badgeContent={0} color="error">
-              <ShoppingCartIcon />
+          <IconButton size="small" aria-label="shopping cart" color="inherit">
+            <Badge badgeContent={itemCount} color="error">
+              <ShoppingCartIcon sx={{marginRight: "10px"}} />
+              Shopping Cart
             </Badge>
           </IconButton>
-          <p>Shopping Cart</p>
         </Link>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem>
         <IconButton
-          size="large"
+          size="small"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
+          onClick={handleClick}
         >
-          <AccountCircle />
+          <AccountCircle sx={{marginRight: "10px"}} />
+          Profile
         </IconButton>
-        <p>Profile</p>
       </MenuItem>
     </Menu>
   );
@@ -175,7 +188,7 @@ export default function Header() {
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              onClick={handleClick}
               color="inherit"
             >
               <AccountCircle />
@@ -194,6 +207,13 @@ export default function Header() {
             </IconButton>
           </Box>
         </Toolbar>
+        <Box>
+          {user ? (
+            <SignedInMenu anchorEl={DropMenuItem} handleClose={handleClose} user={user} />
+          ) : (
+            <SignedOutMenu anchorEl={DropMenuItem} handleClose={handleClose} />
+          )}
+        </Box>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}

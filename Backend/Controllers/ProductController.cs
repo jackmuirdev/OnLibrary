@@ -72,7 +72,6 @@ public class ProductsController : BaseApiController
 
             product.Image = imageResult.SecureUrl.ToString();
 
-            product.PublicId = imageResult.PublicId;
         }
 
         _context.Products.Add(product);
@@ -100,11 +99,7 @@ public class ProductsController : BaseApiController
 
             if (imageResult.Error != null) return BadRequest(new ProblemDetails { Title = imageResult.Error.Message });
 
-            if (!string.IsNullOrEmpty(product.PublicId)) await _imageService.DeleteImageAsync(product.PublicId);
-
             product.Image = imageResult.SecureUrl.ToString();
-
-            product.PublicId = imageResult.PublicId;
         }
 
         var result = await _context.SaveChangesAsync() > 0;
@@ -121,8 +116,6 @@ public class ProductsController : BaseApiController
         var product = await _context.Products.FindAsync(id);
 
         if (product == null) return NotFound();
-
-        if (!string.IsNullOrEmpty(product.PublicId)) await _imageService.DeleteImageAsync(product.PublicId);
 
         _context.Products.Remove(product);
 

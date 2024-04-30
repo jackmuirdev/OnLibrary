@@ -10,5 +10,4 @@ public class Product
     public string Category  { get; set; }
     public string Author { get; set; }
     public int QuantityInStock { get; set; }
-    public string PublicId { get; set; }
 }
