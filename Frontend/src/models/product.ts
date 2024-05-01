@@ -1,20 +1,21 @@
 
 export interface Product {
   id: number
-  name: string
+  title: string
   description: string
   price: number
   image: string
   category: string
-  brand: string
+  author: string
   quantityInStock: number
+  pdf: string;
 }
 
 export interface ProductParams {
   orderBy: string;
   searchTerm?: string;
   categories: string[];
-  brands: string[];
+  authors: string[];
   pageNumber: number;
   pageSize: number;
 }

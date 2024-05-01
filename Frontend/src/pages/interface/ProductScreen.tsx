@@ -1,66 +1,78 @@
-import { Grid, Typography, Divider, TableContainer, TableBody, TableRow, TableCell, IconButton, Button } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Divider,
+  TableContainer,
+  TableBody,
+  TableRow,
+  TableCell,
+  Button,
+  Table,
+} from "@mui/material";
 import { useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/common/Loading";
 import NotFound from "../errors/NotFoundScreen";
-import { Remove, Add } from '@mui/icons-material';
-import booksData from "../../data/products.json"; 
-import bestData from "../../data/bestSellers.json"; 
 import { Product } from "../../models/product";
 
-export default function ProductScreen() {
-  const { id = '' } = useParams<{ id: string }>();
+const ProductScreen = () => {
+  const { id = "" } = useParams<{ id: string }>();
   const productId = parseInt(id, 10);
   const [product, setProduct] = useState<Product | null>(null);
-  const [productStatus, setProductStatus] = useState<string>('');
-  const [quantity, setQuantity] = useState(0);
+  const [productStatus, setProductStatus] = useState<string>("");
 
   useEffect(() => {
-    const selectedProduct = booksData.find((item) => item.id === productId) || bestData.find((item) => item.id === productId);
-    if (selectedProduct) {
-      setProduct(selectedProduct);
-    } else {
-      setProduct(null);
-      setProductStatus('not-found');
-    }
+    const fetchProduct = async () => {
+      setProductStatus("pending");
+      try {
+        const response = await fetch(
+          `http://localhost:10000/api/products/${productId}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch product");
+        }
+        const data = await response.json();
+        setProduct(data);
+        setProductStatus("idle");
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        setProductStatus("error");
+      }
+    };
+
+    fetchProduct();
   }, [productId]);
 
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleUpdateBasket = () => {
-    // Define logic to update basket
-  };
-
-  if (productStatus === 'not-found') return <NotFound />;
+  if (productStatus === "not-found") return <NotFound />;
 
   if (productStatus.includes("pending")) return <Loading />;
 
   if (!product) return null;
 
+  const openPdf = () => {
+    window.open(product.pdf, "_blank");
+  }
+
+  console.log(product.pdf)
+
   return (
-    <Grid container spacing={15} sx={{mt: 5}}>
-      <Grid item xs={6} sx={{ mb: 2 }}>
-        <img src={product.image} alt={product.title} style={{ width: '100%' }} />
+    <Grid container spacing={15} sx={{ mt: 5 }}>
+      <Grid item xs={12} md={6} sx={{ mb: 2 }}>
+        <img
+          src={product.image}
+          alt={product.title}
+          style={{ width: "100%" }}
+        />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6}>
         <Typography variant="h3">{product.title}</Typography>
         <Divider sx={{ mb: 3, mt: 2 }} />
-        <Typography variant="h4" color='#1976d2'>£{product.price.toFixed(2)}</Typography>
         <TableContainer>
           <Table>
             <TableBody>
               <TableRow>
                 <TableCell>
-                  <Typography variant="h6" sx={{ width: "100%" }}>
+                  <Typography variant="h6" sx={{ width: "100%", marginTop: "-22px" }}>
                     {product.description}
                   </Typography>
                 </TableCell>
@@ -74,22 +86,9 @@ export default function ProductScreen() {
               </TableRow>
               <TableRow>
                 <TableCell>
-                  <Typography variant="h6">
-                    <IconButton color="error" onClick={handleDecrement}>
-                      <Remove />
-                    </IconButton>
-                    {quantity}
-                    <IconButton color="success" onClick={handleIncrement}>
-                      <Add />
-                    </IconButton>
-                  </Typography>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <Typography variant="h6" sx={{ width: "35%" }}>
-                    <Button variant="contained" onClick={handleUpdateBasket}>Add to Basket</Button>
-                  </Typography>
+                  <Button onClick={openPdf} variant="contained" size="large">
+                    Download
+                  </Button>
                 </TableCell>
               </TableRow>
             </TableBody>
@@ -98,4 +97,6 @@ export default function ProductScreen() {
       </Grid>
     </Grid>
   );
-}
+};
+
+export default ProductScreen;

@@ -4,7 +4,7 @@ import { useAppSelector, useAppDispatch } from "../store/configureStore";
 
 export default function useProducts() {
   const products = useAppSelector(productSelectors.selectAll)
-  const { productsLoaded, filtersLoaded, brands, categories, productParams, metaData } = useAppSelector(state => state.catalog);
+  const { productsLoaded, filtersLoaded, authors, categories, productParams, metaData } = useAppSelector(state => state.catalog);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -15,5 +15,5 @@ export default function useProducts() {
     if (!filtersLoaded) dispatch(fetchFilters());
   }, [dispatch, filtersLoaded]);
 
-  return { products, brands, categories, productParams, metaData, filtersLoaded}
+  return { products, authors, categories, productParams, metaData, filtersLoaded}
 }

@@ -1,40 +1,70 @@
-import { useState } from "react";
 import { Grid, Pagination, Typography } from "@mui/material";
-import ProductList from "../../components/layout/interface/catalog-page/ProductList";
+import ProductList from "../../components/layout/interface/catalogue-page/ProductList";
+import { useEffect, useState } from "react";
 import { Product } from "../../models/product";
-import productsData from "../../data/products.json";
 
 const ITEMS_PER_PAGE = 8;
 
 const CatalogueScreen = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [productsLoaded, setProductsLoaded] = useState(false);
+  const [status, setStatus] = useState("idle");
   const [currentPage, setCurrentPage] = useState(1);
-  const products: Product[] = productsData;
-  const totalItems = products.length;
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setStatus("pending");
+      try {
+        const response = await fetch("http://localhost:10000/api/products");
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+        const data = await response.json();
+        setProducts(data);
+        setProductsLoaded(true);
+        setStatus("idle");
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setStatus("error");
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  const handlePageChange = (page: any) => {
+    setCurrentPage(page);
+  };
 
   const lastIndex = currentPage * ITEMS_PER_PAGE;
   const firstIndex = lastIndex - ITEMS_PER_PAGE;
   const currentProducts = products.slice(firstIndex, lastIndex);
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
   return (
-    <Grid container spacing={4} style={{marginTop: "50px"}}>
-      <Typography variant="h3">
-        Catalogue
-      </Typography>
-      <Grid item xs={12}>
-        <ProductList products={currentProducts} />
+    <>
+      <Typography variant="h2" sx={{textAlign: "center", marginTop: "50px"}}>Catalogue</Typography>
+      <Grid
+        item
+        xs={12}
+        md={9}
+        sx={{ marginTop: "50px", marginBottom: "20px" }}
+      >
+        {productsLoaded && status === "idle" ? (
+          <ProductList products={currentProducts} />
+        ) : status === "pending" ? (
+          <div>Loading...</div>
+        ) : status === "error" ? (
+          <div>Error fetching products</div>
+        ) : null}
       </Grid>
-      <Grid item xs={12} style={{marginBottom: "50px"}}>
+      <Grid item xs={12} style={{ marginBottom: "50px" }}>
         <Pagination
-          count={Math.ceil(totalItems / ITEMS_PER_PAGE)}
+          count={Math.ceil(products.length / ITEMS_PER_PAGE)}
           page={currentPage}
           onChange={(_event, page) => handlePageChange(page)}
         />
       </Grid>
-    </Grid>
+    </>
   );
 };
 

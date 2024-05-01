@@ -2,6 +2,8 @@ import { Remove, Add, Delete } from '@mui/icons-material';
 import { LoadingButton } from '@mui/lab';
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Box, Button } from '@mui/material';
 import { BasketItem } from '../../../../models/basket';
+import { removeBasketItemAsync, addBasketItemAsync } from '../../../../slices/basketSlice';
+import { useAppDispatch } from '../../../../store/configureStore';
 
 interface Props {
     items: BasketItem[];
@@ -9,13 +11,15 @@ interface Props {
 }
 
 export default function BasketTable({ items, isBasket = true }: Props) {
-    const handleRemoveItem = (productId: number) => {
-        // Define logic to remove item from basket
-    };
+    const dispatch = useAppDispatch();
 
-    const handleAddItem = (productId: number) => {
-        // Define logic to add item to basket
-    };
+    const handleRemoveItem = (productId: number) => {
+        dispatch(removeBasketItemAsync({ productId, quantity: 1 }));
+      };
+    
+      const handleAddItem = (productId: number) => {
+        dispatch(addBasketItemAsync({ productId, quantity: 1 }));
+      };
 
     return (
         <TableContainer component={Paper}>

@@ -27,14 +27,6 @@ namespace Backend.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ClientSecret")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PaymentIntentId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
                     b.ToTable("Baskets");
@@ -139,14 +131,11 @@ namespace Backend.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<long>("Price")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("PublicId")
+                    b.Property<string>("Pdf")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("QuantityInStock")
+                    b.Property<long>("Price")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")

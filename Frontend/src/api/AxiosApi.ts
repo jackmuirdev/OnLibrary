@@ -6,7 +6,8 @@ import router from "../router/Routes";
 
 const sleep = () => new Promise(resolve => setTimeout(resolve, 500))
 
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:10000/api';
+console.log(import.meta.env.VITE_API_URL)
 axios.defaults.withCredentials = true;
 
 const responseBody = (response: AxiosResponse) => response.data;
