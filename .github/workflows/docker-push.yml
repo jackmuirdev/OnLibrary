@@ -29,12 +29,12 @@ jobs:
           context: "{{defaultContext}}:Backend"
           push: true
           tags: jackmuir11/library-management:latest
-  deploy:
-    needs: docker
-    name: Deploy app
-    runs-on: ubuntu-latest
-    concurrency: deploy-group 
-    steps:
-      - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+  # deploy:
+  #   needs: docker
+  #   name: Deploy app
+  #   runs-on: ubuntu-latest
+  #   concurrency: deploy-group 
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: superfly/flyctl-actions/setup-flyctl@master
+  #     - run: flyctl deploy --remote-only
