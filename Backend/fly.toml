@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for onlibrary on 2024-05-01T21:32:10+01:00
+# fly.toml app configuration file generated for onlibrary on 2024-05-01T21:54:24+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -10,7 +10,7 @@ primary_region = 'lhr'
   image = 'jackmuir11/library-management:latest'
 
 [env]
-  ASPNETCORE_URLS="http://+:8080"
+  ASPNETCORE_URLS = 'http://+:8080'
 
 [http_service]
   internal_port = 8080
