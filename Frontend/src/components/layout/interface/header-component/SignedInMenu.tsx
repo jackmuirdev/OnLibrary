@@ -7,6 +7,7 @@ import { User } from '../../../../models/user';
 import { signOut } from '../../../../slices/accountSlice';
 import { clearBasket } from '../../../../slices/basketSlice';
 import { useAppDispatch } from '../../../../store/configureStore';
+import { inDevelopment } from '../../../../util/util';
 
 interface MenuProps {
   anchorEl: null | HTMLElement;
@@ -30,14 +31,18 @@ export default function SignedInMenu({ anchorEl: anchorElProp, handleClose: hand
           anchorEl={anchorElProp || anchorEl}
           open={Boolean(anchorElProp) || open}
           onClose={handleClose}
-          TransitionComponent={Fade}
+          TransitionComponent={Fade}                   
         >
-          <MenuItem onClick={handleClose} component={Link} to="/orders">
-            My Orders
+          <MenuItem onClick={handleClose} component={Link} to="#">
+            <div onClick={inDevelopment}>
+              My Orders
+            </div>
           </MenuItem>
           {user?.roles?.includes('Admin') ? (
-          <MenuItem onClick={handleClose} component={Link} to="/inventory">
-            Inventory
+          <MenuItem onClick={handleClose} component={Link} to="#">
+            <div onClick={inDevelopment}>
+              Inventory
+            </div>
           </MenuItem>
           ) : null}
           <MenuItem onClick={() => {

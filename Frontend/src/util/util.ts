@@ -7,4 +7,8 @@ function currencyFormat(amount: number) {
   return "£" + (amount / 100).toFixed(2); 
 }
 
-export { getCookie, currencyFormat };
+function inDevelopment() {
+  alert("This feature is in development");
+}
+
+export { getCookie, currencyFormat, inDevelopment };

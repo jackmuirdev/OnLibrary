@@ -21,10 +21,6 @@ const ProductScreen = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [productStatus, setProductStatus] = useState<string>("");
 
-  const openPdf = () => {
-    window.open('../../../public/images/book-1984.png', "_blank");
-  }
-
   useEffect(() => {
     const fetchProduct = async () => {
       setProductStatus("pending");
@@ -53,16 +49,22 @@ const ProductScreen = () => {
 
   if (!product) return null;
 
+  const openPdf = () => {
+    window.open(product.pdf, "_blank");
+  }
+
+  console.log(product.pdf)
+
   return (
     <Grid container spacing={15} sx={{ mt: 5 }}>
-      <Grid item xs={6} sx={{ mb: 2 }}>
+      <Grid item xs={12} md={6} sx={{ mb: 2 }}>
         <img
           src={product.image}
           alt={product.title}
           style={{ width: "100%" }}
         />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6}>
         <Typography variant="h3">{product.title}</Typography>
         <Divider sx={{ mb: 3, mt: 2 }} />
         <TableContainer>
@@ -70,7 +72,7 @@ const ProductScreen = () => {
             <TableBody>
               <TableRow>
                 <TableCell>
-                  <Typography variant="h6" sx={{ width: "100%" }}>
+                  <Typography variant="h6" sx={{ width: "100%", marginTop: "-22px" }}>
                     {product.description}
                   </Typography>
                 </TableCell>
@@ -84,7 +86,7 @@ const ProductScreen = () => {
               </TableRow>
               <TableRow>
                 <TableCell>
-                  <Button onClick={openPdf}>
+                  <Button onClick={openPdf} variant="contained" size="large">
                     Download
                   </Button>
                 </TableCell>

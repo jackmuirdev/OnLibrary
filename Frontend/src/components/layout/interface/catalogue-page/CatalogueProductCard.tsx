@@ -1,19 +1,23 @@
 import { CardMedia, CardContent, Typography, CardActions, Button, Card } from "@mui/material";
 import { Product } from "../../../../models/product";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../../../store/configureStore";
 
 interface Props {
   product: Product;
 }
 
 export default function ProductCard({ product }: Props) {
-
-  const handleAddToCart = () => {
-    // Dispatch the action to add the product to the cart
-  };
+  const { user } = useAppSelector(state => state.account);
+  const navigate = useNavigate();
 
   const openPdf = () => {
-    window.open('../../../public/images/book-1984.png', "_blank");
+    if (user) {
+      window.open(product.pdf, "_blank");
+    } else {
+      // Redirect to login page
+      navigate("/login");
+    }
   }
 
   return (
@@ -31,7 +35,7 @@ export default function ProductCard({ product }: Props) {
             {product.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {product.author} / {product.category} {/* Use author and category from the data */}
+            {product.author} / {product.category}
           </Typography>
         </CardContent>
         <CardActions>
@@ -50,7 +54,7 @@ export default function ProductCard({ product }: Props) {
               },
             }}  
           >
-            Open PDF
+            Download
           </Button>
         </CardActions>
       </Card>

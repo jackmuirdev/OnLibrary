@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/configureStore';
 import SignedInMenu from '../layout/interface/header-component/SignedInMenu';
 import SignedOutMenu from '../layout/interface/header-component/SignedOutMenu';
+import { inDevelopment } from '../../util/util';
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -91,7 +92,7 @@ export default function Header() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <Link to="/basket" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link to="/catalogue" style={{ textDecoration: 'none', color: 'inherit' }}>
           <IconButton size="small" aria-label="shopping cart" color="inherit">
             <Badge badgeContent={itemCount} color="error">
               <StoreIcon sx={{marginRight: "10px"}} />
@@ -101,7 +102,7 @@ export default function Header() {
         </Link>
       </MenuItem>
       <MenuItem>
-        <Link to="/basket" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <Link to="#" style={{ textDecoration: 'none', color: 'inherit' }} onClick={inDevelopment}>
           <IconButton size="small" aria-label="shopping cart" color="inherit">
             <Badge badgeContent={itemCount} color="error">
               <ShoppingCartIcon sx={{marginRight: "10px"}} />
@@ -131,7 +132,9 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Logo</Link>
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <img src="../../../public/brand/logo.png" alt="logo" style={{ width: "100%", height: "50px"}} />
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -142,8 +145,8 @@ export default function Header() {
                 </Badge>
               </IconButton>
             </Link>
-            <Link to="/shopping-bag" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <IconButton size="small" aria-label="shopping cart" color="inherit" sx={{marginRight: "10px"}}>
+            <Link to="#" style={{ textDecoration: 'none', color: 'inherit' }} onClick={inDevelopment}>
+              <IconButton size="small" aria-label="shopping cart" color="inherit" sx={{marginRight: "10px"}} >
                 <Badge badgeContent={0} color="error">
                   <ShoppingCartIcon/>
                 </Badge>
