@@ -1,4 +1,4 @@
-import { Container, CssBaseline } from "@mui/material";
+import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import Header from "./components/common/Header";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -12,6 +12,8 @@ import { fetchCurrentUser } from "./slices/accountSlice";
 function App() {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(true);
+
+  const theme = createTheme();
 
   const initApp = useCallback(async () => {
     try {
@@ -31,17 +33,16 @@ function App() {
 
   return (
     <>
+      <ThemeProvider theme={theme}>
       <ToastContainer position="top-right" hideProgressBar theme="colored" />
       <CssBaseline />
       <Header />
       <Container
         id="container"
-        maxWidth={false}
-        disableGutters 
-        style={{ height: "100vh" }}
       >
         <Outlet />
       </Container>
+      </ThemeProvider>
     </>
   );
 }

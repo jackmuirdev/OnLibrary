@@ -1,29 +1,29 @@
-import { Grid } from "@mui/material"
-import { Product } from "../../../../models/product";
-import { useAppSelector } from "../../../../store/configureStore";
+import { Grid } from "@mui/material";
+import { useState, useEffect } from "react";
 import ProductCard from "./CatalogueProductCard";
 import ProductCardSkeleton from "./ProductSkeleton";
+import { Product } from "../../../../models/product";
 
-interface Props {
-  products:Product[];
-}
+const ProductList = ({ products }: { products: Product[] }) => {
+  const [productsLoaded, setProductsLoaded] = useState<boolean>(false);
 
-const ProductList = ({products}: Props) => {
-  const {productsLoaded} = useAppSelector(state => state.catalog);
+  useEffect(() => {
+    setProductsLoaded(true); // Assuming products are loaded from props
+  }, [products]);
 
   return (
     <Grid container spacing={2}>
-      {products.map(product => (
-        <Grid item xs={6} sm={4} key={product.id}>
-          {!productsLoaded ? (
-            <ProductCardSkeleton />
-          ) : (
+      {products.map((product) => (
+        <Grid item xs={12} sm={3} key={product.id}>
+          {productsLoaded ? (
             <ProductCard product={product} />
+          ) : (
+            <ProductCardSkeleton />
           )}
         </Grid>
       ))}
     </Grid>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;

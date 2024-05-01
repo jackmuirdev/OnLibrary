@@ -1,67 +1,43 @@
-import styled from "@emotion/styled";
-import { Link as RouterLink } from "react-router-dom";
-import { LoadingButton } from "@mui/lab";
-import { CardMedia, Typography, CardContent, CardActions } from "@mui/material";
-import { CardHeader, Card } from "react-bootstrap";
+import { CardMedia, CardContent, Typography, CardActions, Button, Card } from "@mui/material";
 import { Product } from "../../../../models/product";
-import { addBasketItemAsync } from "../../../../slices/basketSlice";
-import { useAppSelector, useAppDispatch } from "../../../../store/configureStore";
-import { currencyFormat } from "../../../../util/util";
+import { Link } from "react-router-dom";
 
 interface Props {
   product: Product;
 }
 
-const StyledCardHeader = styled(CardHeader)`
-  & .MuiCardHeader-content {
-    flex: 1 1 auto;
-    width: 100%;
-  }
-`;
+export default function ProductCard({ product }: Props) {
 
-const ProductCard = ({ product }: Props) => {
-  const {status} = useAppSelector(state => state.basket);
-  const dispatch = useAppDispatch();
+  const handleAddToCart = () => {
+    // Dispatch the action to add the product to the cart
+  };
+
+  const openPdf = () => {
+    window.open('../../../public/images/book-1984.png', "_blank");
+  }
 
   return (
+    <div>
       <Card style={{ textAlign: "center" }}>
-        <RouterLink to={`/catalog/${product.id}`} style={{ textDecoration: "none" }}>
+        <Link to={`/catalogue/${product.id}`} style={{ textDecoration: "none" }}>
           <CardMedia
             sx={{ height: 400, borderRadius: '0px'}}
             image={product.image}
-            title={product.title}
+            title={product.title} 
           />
-        </RouterLink>
-        <StyledCardHeader
-          title={
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: 'bold',
-                mb: -3,
-                fontFamily: "'Questrial', sans-serif",
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {product.title}
-            </Typography>
-          }
-        />
+        </Link>
         <CardContent>
-          <Typography gutterBottom color='primary' variant="h5" >
-            {currencyFormat(product.price)}
+          <Typography gutterBottom variant="h6">
+            {product.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {product.author} / {product.category}
+            {product.author} / {product.category} {/* Use author and category from the data */}
           </Typography>
         </CardContent>
         <CardActions>
-          <LoadingButton 
+          <Button 
             size="small" 
-            onClick={() => dispatch(addBasketItemAsync({productId: product.id}))} 
-            loading={status === 'pendingAddItem' + product.id} 
+            onClick={openPdf}
             sx={{
               backgroundColor: "red",
               padding: "10px",
@@ -74,11 +50,10 @@ const ProductCard = ({ product }: Props) => {
               },
             }}  
           >
-            Add To Cart
-          </LoadingButton>
+            Open PDF
+          </Button>
         </CardActions>
       </Card>
+    </div>
   );
 }
-
-export default ProductCard;

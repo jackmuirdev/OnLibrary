@@ -1,72 +1,71 @@
-import { Grid, Paper } from "@mui/material";
-import Loading from "../../components/common/Loading";
+import { Grid, Pagination, Typography } from "@mui/material";
 import ProductList from "../../components/layout/interface/catalogue-page/ProductList";
-import useProducts from "../../hooks/useProducts";
-import { setProductParams, setPageNumber } from "../../slices/catalogSlice";
-import { useAppSelector, useAppDispatch } from "../../store/configureStore";
-import NotFound from "../errors/NotFoundScreen";
-import CustomPagination from "../../components/layout/interface/catalogue-page/CustomPagination";
-import ProductSearch from "../../components/layout/interface/catalogue-page/ProductSearch";
-import RadioButtonGroup from "../../components/layout/interface/catalogue-page/RadioButtonGroup";
-import CheckBoxButtons from "../../components/layout/interface/catalogue-page/CheckBoxButtons";
+import { useEffect, useState } from "react";
+import { Product } from "../../models/product";
 
-const sortOptions = [
-  { value: 'name', label: 'Alphabetical' },
-  { value: 'priceDesc', label: 'Price - High to Low' },
-  { value: 'price', label: 'Price - Low to High' }
-]
+const ITEMS_PER_PAGE = 8;
 
 const CatalogueScreen = () => {
-  const { products, filtersLoaded, authors, categories, metaData } = useProducts();
-  const { productParams } = useAppSelector(state => state.catalog);
-  const dispatch = useAppDispatch();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [productsLoaded, setProductsLoaded] = useState(false);
+  const [status, setStatus] = useState("idle");
+  const [currentPage, setCurrentPage] = useState(1);
 
-  if (!filtersLoaded) return <Loading />
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setStatus("pending");
+      try {
+        const response = await fetch("http://localhost:10000/api/products");
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+        const data = await response.json();
+        setProducts(data);
+        setProductsLoaded(true);
+        setStatus("idle");
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setStatus("error");
+      }
+    };
 
-  if (!products) return <NotFound />
+    fetchProducts();
+  }, []);
+
+  const handlePageChange = (page: any) => {
+    setCurrentPage(page);
+  };
+
+  const lastIndex = currentPage * ITEMS_PER_PAGE;
+  const firstIndex = lastIndex - ITEMS_PER_PAGE;
+  const currentProducts = products.slice(firstIndex, lastIndex);
 
   return (
     <>
-      <Grid container columnSpacing={4} sx={{ width: '100%', maxWidth: 'initial', padding: "50px" }}>
-        <Grid item xs={12} md={3}>
-          <Paper sx={{ mb: 2 }}>
-            <ProductSearch />
-          </Paper>
-          <Paper sx={{ mb: 2, p: 2 }}>
-            <RadioButtonGroup
-              selectedValue={productParams.orderBy}
-              options={sortOptions}
-              onChange={(e) => dispatch(setProductParams({ orderBy: e.target.value }))}
-            />
-          </Paper>
-          <Paper sx={{ mb: 2, p: 2 }}>
-            <CheckBoxButtons
-              items={authors}
-              checked={productParams.authors}
-              onChange={(items: string[]) => dispatch(setProductParams({ authors: items }))}
-            />
-          </Paper>
-          <Paper sx={{ mb: 2, p: 2 }}>
-            <CheckBoxButtons
-              items={categories}
-              checked={productParams.categories}
-              onChange={(items: string[]) => dispatch(setProductParams({ categories: items }))}
-            />
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={9}>
-          <ProductList products={products} />
-        </Grid>
-        <Grid item xs={12} md={9} sx={{ mb: 2, mt: 3 }}>
-          {metaData &&
-            <CustomPagination
-              metaData={metaData}
-              onPageChange={(page: number) => dispatch(setPageNumber({ pageNumber: page }))}
-            />}
-        </Grid>
+      <Typography variant="h2" sx={{textAlign: "center", marginTop: "50px"}}>Catalogue</Typography>
+      <Grid
+        item
+        xs={12}
+        md={9}
+        sx={{ marginTop: "50px", marginBottom: "20px" }}
+      >
+        {productsLoaded && status === "idle" ? (
+          <ProductList products={currentProducts} />
+        ) : status === "pending" ? (
+          <div>Loading...</div>
+        ) : status === "error" ? (
+          <div>Error fetching products</div>
+        ) : null}
+      </Grid>
+      <Grid item xs={12} style={{ marginBottom: "50px" }}>
+        <Pagination
+          count={Math.ceil(products.length / ITEMS_PER_PAGE)}
+          page={currentPage}
+          onChange={(_event, page) => handlePageChange(page)}
+        />
       </Grid>
     </>
-  )
-}
+  );
+};
 
 export default CatalogueScreen;

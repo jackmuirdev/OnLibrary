@@ -1,15 +1,13 @@
 import React from 'react';
-import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
+import StoreIcon from '@mui/icons-material/Store';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
@@ -17,45 +15,6 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../store/configureStore';
 import SignedInMenu from '../layout/interface/header-component/SignedInMenu';
 import SignedOutMenu from '../layout/interface/header-component/SignedOutMenu';
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 'auto',
-  width: 'auto',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -135,6 +94,16 @@ export default function Header() {
         <Link to="/basket" style={{ textDecoration: 'none', color: 'inherit' }}>
           <IconButton size="small" aria-label="shopping cart" color="inherit">
             <Badge badgeContent={itemCount} color="error">
+              <StoreIcon sx={{marginRight: "10px"}} />
+              Catalogue
+            </Badge>
+          </IconButton>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link to="/basket" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <IconButton size="small" aria-label="shopping cart" color="inherit">
+            <Badge badgeContent={itemCount} color="error">
               <ShoppingCartIcon sx={{marginRight: "10px"}} />
               Shopping Cart
             </Badge>
@@ -164,26 +133,24 @@ export default function Header() {
           <Typography variant="h6" noWrap component="div">
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Logo</Link>
           </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Link to="/shopping-bag" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <IconButton size="large" aria-label="shopping cart" color="inherit">
+          <Link to="/catalogue" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <IconButton size="small" aria-label="shopping cart" color="inherit" sx={{marginRight: "10px"}}>
                 <Badge badgeContent={0} color="error">
-                  <ShoppingCartIcon />
+                  <StoreIcon />
+                </Badge>
+              </IconButton>
+            </Link>
+            <Link to="/shopping-bag" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <IconButton size="small" aria-label="shopping cart" color="inherit" sx={{marginRight: "10px"}}>
+                <Badge badgeContent={0} color="error">
+                  <ShoppingCartIcon/>
                 </Badge>
               </IconButton>
             </Link>
             <IconButton
-              size="large"
+              size="small"
               edge="end"
               aria-label="account of current user"
               aria-controls={menuId}

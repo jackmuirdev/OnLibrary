@@ -9,5 +9,5 @@ public class Product
     public string Image { get; set; }
     public string Category  { get; set; }
     public string Author { get; set; }
-    public int QuantityInStock { get; set; }
+    public string Pdf { get; set; }
 }

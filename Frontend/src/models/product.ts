@@ -8,6 +8,7 @@ export interface Product {
   category: string
   author: string
   quantityInStock: number
+  pdf: string;
 }
 
 export interface ProductParams {
