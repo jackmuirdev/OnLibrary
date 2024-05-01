@@ -1,0 +1,125 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/assets/index-6B76qERa.js",
+      "PackagePath": "staticwebassets/assets/index-6B76qERa.js"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/assets/index-Bf1IMvAc.js",
+      "PackagePath": "staticwebassets/assets/index-Bf1IMvAc.js"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/assets/index-CS3xZcTQ.css",
+      "PackagePath": "staticwebassets/assets/index-CS3xZcTQ.css"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/assets/index-D4fgf9yz.js",
+      "PackagePath": "staticwebassets/assets/index-D4fgf9yz.js"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/assets/index-DYHjCkFl.js",
+      "PackagePath": "staticwebassets/assets/index-DYHjCkFl.js"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/assets/index-Df2SnTm0.js",
+      "PackagePath": "staticwebassets/assets/index-Df2SnTm0.js"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/assets/index-DvqybGcd.js",
+      "PackagePath": "staticwebassets/assets/index-DvqybGcd.js"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/assets/index-O0QKgPKb.js",
+      "PackagePath": "staticwebassets/assets/index-O0QKgPKb.js"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/brand/OL.png",
+      "PackagePath": "staticwebassets/brand/OL.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/brand/library.jpg",
+      "PackagePath": "staticwebassets/brand/library.jpg"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/brand/logo.png",
+      "PackagePath": "staticwebassets/brand/logo.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/brand/woman-reading.jpg",
+      "PackagePath": "staticwebassets/brand/woman-reading.jpg"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/brand/woman-reading2.jpg",
+      "PackagePath": "staticwebassets/brand/woman-reading2.jpg"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/images/book-1984.png",
+      "PackagePath": "staticwebassets/images/book-1984.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/images/book-catcherintherye.png",
+      "PackagePath": "staticwebassets/images/book-catcherintherye.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/images/book-gatsby.png",
+      "PackagePath": "staticwebassets/images/book-gatsby.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/images/book-lordoftherings.png",
+      "PackagePath": "staticwebassets/images/book-lordoftherings.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/images/book-mockingbird.png",
+      "PackagePath": "staticwebassets/images/book-mockingbird.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/images/book-prideprejudice.png",
+      "PackagePath": "staticwebassets/images/book-prideprejudice.png"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/pdf/book-1984.pdf",
+      "PackagePath": "staticwebassets/pdf/book-1984.pdf"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/pdf/book-catcherintherye.pdf",
+      "PackagePath": "staticwebassets/pdf/book-catcherintherye.pdf"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/pdf/book-gatsby.pdf",
+      "PackagePath": "staticwebassets/pdf/book-gatsby.pdf"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/pdf/book-lordoftherings.pdf",
+      "PackagePath": "staticwebassets/pdf/book-lordoftherings.pdf"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/pdf/book-mockingbird.pdf",
+      "PackagePath": "staticwebassets/pdf/book-mockingbird.pdf"
+    },
+    {
+      "Id": "/Users/jackmuir/Desktop/library-management/Backend/wwwroot/pdf/book-prideprejudice.pdf",
+      "PackagePath": "staticwebassets/pdf/book-prideprejudice.pdf"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.Backend.props",
+      "PackagePath": "build\\Backend.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Backend.props",
+      "PackagePath": "buildMultiTargeting\\Backend.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Backend.props",
+      "PackagePath": "buildTransitive\\Backend.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

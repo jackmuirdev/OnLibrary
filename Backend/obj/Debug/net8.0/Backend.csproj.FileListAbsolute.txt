@@ -224,3 +224,4 @@
 /Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
 /Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/Users/jackmuir/Desktop/library-management/Backend/bin/Debug/net8.0/Backend.staticwebassets.runtime.json

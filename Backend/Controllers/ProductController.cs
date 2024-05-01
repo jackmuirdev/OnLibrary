@@ -13,12 +13,10 @@ namespace Backend.Controllers
     {
         private readonly StoreContext _context;
         private readonly IMapper _mapper;
-        private readonly ImageService _imageService;
-        public ProductsController(StoreContext context, IMapper mapper, ImageService imageService)
+        public ProductsController(StoreContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
-            _imageService = imageService;
         }
 
         [HttpGet]
@@ -53,16 +51,6 @@ namespace Backend.Controllers
         {
             var product = _mapper.Map<Product>(productDto);
 
-            if (productDto.File != null)
-            {
-                var imageResult = await _imageService.AddImageAsync(productDto.File);
-
-                if (imageResult.Error != null) return BadRequest(new ProblemDetails { Title = imageResult.Error.Message });
-
-                product.Image = imageResult.SecureUrl.ToString();
-
-            }
-
             _context.Products.Add(product);
 
             var result = await _context.SaveChangesAsync() > 0;
@@ -86,15 +74,6 @@ namespace Backend.Controllers
             if (product == null) return NotFound();
 
             _mapper.Map(productDto, product);
-
-            if (productDto.File != null)
-            {
-                var imageResult = await _imageService.AddImageAsync(productDto.File);
-
-                if (imageResult.Error != null) return BadRequest(new ProblemDetails { Title = imageResult.Error.Message });
-
-                product.Image = imageResult.SecureUrl.ToString();
-            }
 
             var result = await _context.SaveChangesAsync() > 0;
 

@@ -15,7 +15,7 @@ const CatalogueScreen = () => {
     const fetchProducts = async () => {
       setStatus("pending");
       try {
-        const response = await fetch("http://localhost:10000/api/products");
+        const response = await fetch("/api/products");
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }

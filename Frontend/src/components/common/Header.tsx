@@ -133,7 +133,7 @@ export default function Header() {
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <img src="../../../public/brand/logo.png" alt="logo" style={{ width: "100%", height: "50px"}} />
+              <img src="/brand/logo.png" alt="logo" style={{ width: "100%", height: "50px"}} />
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
