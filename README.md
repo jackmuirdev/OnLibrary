@@ -4,11 +4,10 @@ Welcome to OnLibrary, your one-stop destination for accessing and downloading a 
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Running the code](#runningthecode)
-5. [Usage](#usage)
-6. [License](#license)
+2. [Installation](#installation)
+3. [Running the code](#runningthecode)
+4. [Usage](#usage)
+5. [License](#license)
 
 ## Introduction
 
