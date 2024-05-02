@@ -19,21 +19,25 @@ const ProductScreen = () => {
   const { id = "" } = useParams<{ id: string }>();
   const productId = parseInt(id, 10);
   const [product, setProduct] = useState<Product | null>(null);
-  const [productStatus, setProductStatus] = useState<string>("");
+  const [productStatus, setProductStatus] = useState<"idle" | "pending" | "error" | "not-found">("pending");
 
   useEffect(() => {
     const fetchProduct = async () => {
-      setProductStatus("pending");
       try {
-        const response = await fetch(
-          `api/products/${productId}`
-        );
+        const response = await fetch(`https://onlibrary.fly.dev/api/products/${productId}`);
+        console.log("Response:", response);
         if (!response.ok) {
-          throw new Error("Failed to fetch product");
+          if (response.status === 404) {
+            setProductStatus("not-found");
+          } else {
+            throw new Error("Failed to fetch product");
+          }
+        } else {
+          const data = await response.json();
+          console.log("Fetched Product:", data);
+          setProduct(data);
+          setProductStatus("idle");
         }
-        const data = await response.json();
-        setProduct(data);
-        setProductStatus("idle");
       } catch (error) {
         console.error("Error fetching product:", error);
         setProductStatus("error");
@@ -43,17 +47,14 @@ const ProductScreen = () => {
     fetchProduct();
   }, [productId]);
 
+  if (productStatus === "pending") return <Loading />;
   if (productStatus === "not-found") return <NotFound />;
-
-  if (productStatus.includes("pending")) return <Loading />;
-
+  if (productStatus === "error") return <div>Error fetching product</div>;
   if (!product) return null;
 
   const openPdf = () => {
     window.open(product.pdf, "_blank");
   }
-
-  console.log(product.pdf)
 
   return (
     <Grid container spacing={15} sx={{ mt: 5 }}>
