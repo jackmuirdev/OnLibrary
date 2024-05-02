@@ -5,9 +5,10 @@ Welcome to OnLibrary, your one-stop destination for accessing and downloading a 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Installation](#installation)
-3. [Running the code](#runningthecode)
+3. [Running the Code](#running-the-code)
 4. [Usage](#usage)
-5. [License](#license)
+5. [Contributing](#contributing)
+6. [License](#license)
 
 ## Introduction
 
