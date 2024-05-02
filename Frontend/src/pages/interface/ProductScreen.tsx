@@ -26,7 +26,7 @@ const ProductScreen = () => {
       setProductStatus("pending");
       try {
         const response = await fetch(
-          `http://localhost:10000/api/products/${productId}`
+          `api/products/${productId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch product");
